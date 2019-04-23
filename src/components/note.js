@@ -61,6 +61,8 @@ class Note extends Component {
     this.props.deleteNote(this.props.id);
   }
 
+
+  // Rendering the Title, Icons, and Body separately depending on editing T/F
   renderNoteTitle() {
     if (this.state.isEditing) {
       return (

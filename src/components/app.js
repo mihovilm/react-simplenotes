@@ -6,13 +6,15 @@ import Note from './note';
 import * as db from '../services/datastore';
 
 
+// Extracted the main App into a separate file outside of index.js as Tim suggested
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      notes: Map(),
-      newID: 0,
+      notes: Map(), // Immutable.Map
+      newID: 0, // ID counter
     };
 
     this.addNote = this.addNote.bind(this);
