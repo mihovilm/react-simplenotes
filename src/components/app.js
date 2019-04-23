@@ -46,7 +46,6 @@ class App extends Component {
   }
 
   updateNote(id, fields) {
-    console.log(fields);
     db.updateNote(id, Object.assign({}, this.state.notes.get(id), fields));
   }
 
