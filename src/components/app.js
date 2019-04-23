@@ -20,6 +20,7 @@ class App extends Component {
     this.addNote = this.addNote.bind(this);
     this.updateNote = this.updateNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
+    this.changeZ = this.changeZ.bind(this);
   }
 
   componentDidMount() {
@@ -54,9 +55,17 @@ class App extends Component {
     db.deleteNote(id);
   }
 
+  // Adapted from https://stackoverflow.com/questions/4020796/finding-the-max-value-of-an-attribute-in-an-array-of-objects
+  // Basically convert Immutable Map to List of Objects to Map and then return highest zIndex
+  // Increase the zIndex to max+1 on the one being dragged
+  changeZ(id) {
+    const maxZ = Math.max(...this.state.notes.toList().map((o) => { return o.zIndex; }));
+    this.updateNote(id, { zIndex: (maxZ + 1) });
+  }
+
   renderNotes() {
     return this.state.notes.entrySeq().map(([id, note]) => {
-      return (<Note id={id} note={note} key={id} updateNote={this.updateNote} deleteNote={this.deleteNote} />);
+      return (<Note id={id} note={note} key={id} updateNote={this.updateNote} deleteNote={this.deleteNote} changeZ={this.changeZ} />);
     });
   }
 

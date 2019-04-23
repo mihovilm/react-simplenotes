@@ -13,6 +13,7 @@ class Note extends Component {
       currentText: this.props.note.text,
     };
 
+    this.handleStartDrag = this.handleStartDrag.bind(this);
     this.handleDrag = this.handleDrag.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.saveEdit = this.saveEdit.bind(this);
@@ -27,6 +28,10 @@ class Note extends Component {
 
   handleDrag(e, data) {
     this.props.updateNote(this.props.id, { x: data.x, y: data.y });
+  }
+
+  handleStartDrag(e) {
+    this.props.changeZ(this.props.id);
   }
 
   updateTitle(e) {
@@ -47,7 +52,6 @@ class Note extends Component {
       currentTitle: this.props.note.title,
       currentText: this.props.note.text,
     }));
-    console.log(this.state.currentTitle);
   }
 
   saveEdit(e) {
@@ -127,7 +131,7 @@ class Note extends Component {
           onDrag={this.handleDrag}
           onStop={this.handleStopDrag}
         >
-          <div className="note">
+          <div className="note" style={{ zIndex: this.props.note.zIndex }}>
             <div className="note-header">
               {this.renderNoteTitle()}
               {this.renderNoteIcons()}

@@ -18,7 +18,8 @@ I'd also like to say that the hardest part is probably switching between states 
 
 ## Extra Credit
 It's pretty stylish? Haha. 
-I'm not sure if I have any, but expanding the textareas for title or content resizes the note.
+I implemented zIndex on dragging, and expanding the textareas for title or content resizes the note. The zIndexing is done
+by iterating over the Map of objects and then finding the maximum zIndex. After that I just increase it on the one currently being dragged.
 Also I'm randomizing the initial position of the notes between 40px and about 50% of the viewport height/width.
 
 ## Screenshots
