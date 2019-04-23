@@ -1,13 +1,143 @@
+$fontcolor: rgb(65, 65, 65);
+$fontcolor-light: rgb(70, 70, 70);
+$bgcolor: linear-gradient(238deg, #11b97f, #22bbd4);
+$bgcolor-light: rgb(255, 255, 255);
+$bgcolor-notes: rgba(255, 255, 255, 0.9);
+$bgcolor-shade: rgb(230, 230, 230);
+
 body, html {
-    font-family: "Roboto", sans-serif;
-    background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
+    font-family: 'Source Sans Pro', sans-serif;
+    background: $bgcolor;
+    background-size: 600% 600%;
     height: 100%;
+    color: $fontcolor;
+
+    // Adapted from https://www.gradient-animator.com/
+    animation: MovingGradient 8s ease infinite;
+    @keyframes MovingGradient { 
+        0%{background-position:0% 74%}
+        50%{background-position:100% 27%}
+        100%{background-position:0% 74%}
+    }
 }
 
-.logo {
-    background-image: url('img/logo.png');
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+body {
+    padding: 20px;
+
+    #title {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        font-size: 1.75em;
+        text-align: center;
+        margin-bottom: 0;
+        color: $bgcolor-light;
+    }
+}
+
+#addbar {
+    padding-top: 4vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4vh;
+
+    input, button {
+        font-family: 'Helvetica Neue, Arial', sans-serif;
+        font-weight: 400;
+        font-size: 1.4em;
+        background: rgba(0, 0, 0, 0.4);
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        transition: all 0.5s ease;
+        outline: none;
+    }
+
+    input {
+        margin-right: 20px;
+        width: 50vw;
+    }
+
+    input:hover {
+        background: $bgcolor-shade;
+        color: $fontcolor-light;
+    }
+
+    input:hover::placeholder {
+        color: $fontcolor-light;
+    }
+
+    input:focus {
+        background: $bgcolor-light;
+        color: $fontcolor;
+    }
+
+    input:focus::placeholder {
+        color: $fontcolor;
+    }
+
+    input::placeholder {
+        color: $bgcolor-light;
+    }
+
+    button:hover {
+        background: rgba(0, 0, 0, 0.25);
+    }
+}
+
+
+.note {
+    position: absolute;
+    background: $bgcolor-notes;
+    min-height: 200px;
+    min-width: 300px;
+    display: flex;
+    padding: 20px; 
+    flex-flow: column;
+    box-shadow: 0px 1px 10px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+
+    .note-header {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        
+        #note-title-edit {
+            font-family: 'Helvetica Neue, Arial', sans-serif;
+            padding: 5px;
+            font-size: 1.3em;
+        }
+        .note-title {
+            flex: 3;
+            font-family: 'Helvetica Neue, Arial', sans-serif;
+            font-size: 1.3em;
+        }
+        
+        .note-icons {
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+    
+            .note-mover {
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .note-body {
+        flex: 2;
+
+        textarea {
+            padding: 5px;
+            margin-top: 10px;
+            font-size: 1.25em;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+    }
+}
+
+i {
+    outline: none;
+}
