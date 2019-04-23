@@ -9,6 +9,10 @@ $bgcolor-light: rgb(255, 255, 255);
 $bgcolor-notes: rgba(255, 255, 255, 0.9);
 $bgcolor-shade: rgb(230, 230, 230);
 
+* {
+    outline: none;
+}
+
 body, html {
     font-family: 'Source Sans Pro', sans-serif;
     background: $bgcolor;
@@ -144,5 +148,6 @@ body {
 
 // FontAwesome icons
 i {
+    cursor: pointer;
     outline: none;
 }

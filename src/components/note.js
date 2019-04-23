@@ -20,6 +20,7 @@ class Note extends Component {
     this.updateTitle = this.updateTitle.bind(this);
     this.updateText = this.updateText.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.clickToFront = this.clickToFront.bind(this);
 
     this.renderNoteTitle = this.renderNoteTitle.bind(this);
     this.renderNoteBody = this.renderNoteBody.bind(this);
@@ -31,6 +32,10 @@ class Note extends Component {
   }
 
   handleStartDrag(e) {
+    this.props.changeZ(this.props.id);
+  }
+
+  clickToFront() {
     this.props.changeZ(this.props.id);
   }
 
@@ -93,7 +98,7 @@ class Note extends Component {
         <div className="note-icons">
           <i className="note-mover fas fa-arrows-alt" role="button" tabIndex="0" />
           <i onClick={this.handleEdit} className="fas fa-edit" role="button" tabIndex="0" />
-          <i onClick={this.handleDelete} className="far fa-trash-alt" role="button" tabIndex="0" />
+          <i onClick={this.handleDelete} className="far fa-trash-alt" role="button" tabIndex="-1" />
         </div>
       );
     }
@@ -131,12 +136,12 @@ class Note extends Component {
           onDrag={this.handleDrag}
           onStop={this.handleStopDrag}
         >
-          <div className="note" style={{ zIndex: this.props.note.zIndex, outline: 'none' }} onClick={this.handleStartDrag} role="textbox" tabIndex="0">
+          <div className="note" style={{ zIndex: this.props.note.zIndex, outline: 'none' }}>
             <div className="note-header">
               {this.renderNoteTitle()}
               {this.renderNoteIcons()}
             </div>
-            <div className="note-body">
+            <div className="note-body" onClick={this.clickToFront} role="textbox" tabIndex="0">
               {this.renderNoteBody()}
             </div>
           </div>
