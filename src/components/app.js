@@ -30,13 +30,15 @@ class App extends Component {
   }
 
   addNote(title) {
+    const maxZ = Math.max(...this.state.notes.toList().map((o) => { return o.zIndex; }));
+
     const newNote = {
       title,
       text: '',
       // Randomize initial position
       x: 40 + Math.random() * (window.innerWidth / 2.25 - 40),
       y: 20 + Math.random() * (window.innerHeight / 2.5 - 20),
-      zIndex: 0,
+      zIndex: maxZ + 1,
     };
 
     db.addNote(newNote);
