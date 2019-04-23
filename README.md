@@ -25,6 +25,7 @@ The zIndexing is done by iterating over the Map of objects and then finding the 
 Also I'm randomizing the initial position of the notes between 40px and about 50% of the viewport height/width.
 
 ## Screenshots
+![](./img/screen0.png)
 ![](./img/screen1.png)
 ![](./img/screen2.png)
 ![](./img/screen3.png)
