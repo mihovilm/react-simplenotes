@@ -131,7 +131,7 @@ class Note extends Component {
           onDrag={this.handleDrag}
           onStop={this.handleStopDrag}
         >
-          <div className="note" style={{ zIndex: this.props.note.zIndex }}>
+          <div className="note" style={{ zIndex: this.props.note.zIndex, outline: 'none' }} onClick={this.handleStartDrag} role="textbox" tabIndex="0">
             <div className="note-header">
               {this.renderNoteTitle()}
               {this.renderNoteIcons()}

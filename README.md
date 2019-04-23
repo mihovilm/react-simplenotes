@@ -7,7 +7,8 @@ The project is live [here](http://mihovilm-cs52-lab3.surge.sh)!
 I actually didn't realize how much time this lab would take, and I had to make sure I understand
 SA4 completely before going through. After completing this lab, states etc. make much more sense to me.
 I used FontAwesome, Google Fonts, and gradient-animator for designing this. 
-The slack channel was very helpful.
+I'm changing zIndexes to bring it to front whenever you click within a note.
+The slack channel was very helpful. 
 
 ## What Worked / Didn't work
 Everything from the minimal specs should work plus a bit more.
@@ -18,7 +19,7 @@ I'd also like to say that the hardest part is probably switching between states 
 
 ## Extra Credit
 It's pretty stylish? Haha. 
-I implemented zIndex on dragging and automatically setting the highest for the newest note. 
+I implemented zIndex on clicking, dragging, and automatically setting the highest for the newest note. 
 Expanding the textareas for title or content resizes the note. 
 The zIndexing is done by iterating over the Map of objects and then finding the maximum zIndex. After that I just increase it on the one currently being dragged.
 Also I'm randomizing the initial position of the notes between 40px and about 50% of the viewport height/width.
