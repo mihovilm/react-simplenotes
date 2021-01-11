@@ -1,5 +1,5 @@
 # React Notes
-## by Mihovil Mandic for Lab 3, CS52, Spring 2019
+## by Mihovil Mandic, Spring 2019
 
 The project is live [here](http://mihovilm-cs52-lab3.surge.sh)!
 
